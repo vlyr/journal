@@ -89,7 +89,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     match args.next() {
         Some(arg) => match arg.as_ref() {
             "write" => {
-                let text_editor = args.next().expect("vi");
+                let text_editor = args.next().unwrap_or("vi".into());
                 run_command(
                     &text_editor,
                     &[&format!(
